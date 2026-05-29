@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #FFFFFF;
+  --color-foreground: #1A1A1A;
+
+  --color-gold-50:  #FAF8F5;
+  --color-gold-100: #F2EDE6;
+  --color-gold-200: #E5DDD2;
+  --color-gold-300: #D0C4B4;
+  --color-gold-400: #BDAA96;
+  --color-gold-500: #AD9B83;
+  --color-gold-600: #96836A;
+  --color-gold-700: #7A6A54;
+  --color-gold-800: #5E5040;
+  --color-gold-900: #3E342B;
+
+  --color-cream-50:  #FDFCFB;
+  --color-cream-100: #ECE7DA;
+  --color-cream-200: #DDD6C6;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #FFFFFF;
+  color: #1A1A1A;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F9F3EB; }
+::-webkit-scrollbar-thumb { background: #AD9B83; border-radius: 3px; }
+
+/* Cart drawer animation */
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes slideOutRight {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+.cart-enter { animation: slideInRight 0.3s ease-out; }
+.cart-leave { animation: slideOutRight 0.3s ease-in; }
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.4s ease-out forwards; }
